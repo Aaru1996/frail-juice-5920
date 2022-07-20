@@ -1,0 +1,22 @@
+.faq{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    border:1px solid red;
+    width:'200px';
+    height:100vh;
+
+}
+.faq>div{
+    gap:10px;
+    margin: 5px ;
+    background-color:grey;
+    align-items: center;
+    justify-content: center;
+   
+   
+    text-align: center;
+    height:50px;
+    width:200px;
+}
