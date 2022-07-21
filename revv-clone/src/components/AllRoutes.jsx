@@ -8,7 +8,7 @@ import Login from './Pages/Login'
 
 export default function AllRoutes() {
   return (
-    <Box>
+    <Box  marginTop="80px" >
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/faq' element={<FAQs/>}/>
