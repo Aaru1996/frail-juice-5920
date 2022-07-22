@@ -1,6 +1,6 @@
 import React from 'react'
-import {  Modal, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, ModalBody } from '@chakra-ui/react'
-import { Box, Button, Flex, Image, Input, Spacer,Text, VStack} from '@chakra-ui/react'
+import {  Modal, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure, ModalBody } from '@chakra-ui/react'
+import { Box, Button, Image, Input, Text, VStack} from '@chakra-ui/react'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 
 
