@@ -4,7 +4,7 @@ import { Box, Button, Heading, Image, Spacer, Text } from '@chakra-ui/react'
 
 export default function HappyCustomer() {
   return (
-    <Box >
+    <Box  fontFamily="Poppins"mt="50px">
     <Box display="flex" justifyContent="space-around" m="20px 40px" >
         <Heading textAlign="left" color="#a8b5c0 " fontSize="26px">Happy customers</Heading>
         <Spacer/>

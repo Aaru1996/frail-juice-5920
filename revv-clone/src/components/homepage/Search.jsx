@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Search() {
   return (
-    <>
+    <Box fontFamily="Poppins"mt="50px">
     <Box w="100%" h="20px" bgColor="#fff7e2"></Box>
     <Box display='flex' w="100%" >
         <Box    
@@ -39,7 +39,7 @@ export default function Search() {
                 Car Rental in Bangalore
             </Box>
         </Box>
-        <Box w="80%" m="auto" height='120px' borderBottom='1px solid #c6c7d6'   borderRadius="20px">
+        <Box w="80%" m="auto" height='120px' border='1px solid #c6c7d6'   borderRadius="20px">
             <Box display="flex" justifyContent="flex-start" borderBottom='1px solid #c6c7d6' >
                 <Box ml="20px" display="flex" justifyContent="center" alignItems="center">
 
@@ -47,31 +47,31 @@ export default function Search() {
                 </Box>
                 <Box>
 
-                 <Input border="0px"  borderRadius="0px"  h="60px" defaultValue="Bangalore" />
+                 <Input border="0px"  _focus={{border:"0px"}}  borderRadius="0px"  h="60px" defaultValue="Bangalore" />
                 </Box>
             </Box>
             <Box display="flex" w="100%">
                 <Box borderRight='1px solid #c6c7d6'>
-                    <Text mb="-15px">Start Time</Text>
+                    <Text textAlign="center" mb="-15px">Start Time</Text>
                     <Input type="datetime-local" border="0px" h="50px" w="185px"  />
                 </Box>
                 <Box>
-                <Text mb="-15px">End Time</Text>
+                <Text mb="-15px" textAlign="center">End Time</Text>
                      <Input type="datetime-local" border="0px" placeholder='End Time' h="50px"  w="183px" />
                 </Box>
             </Box>
         </Box>
-        <Box  >
-            <Button width="70%" height="60px" bgColor="#0ebaba"  borderRadius="100px" color="white" fontSize="20px">Search</Button>
+        <Box display="flex" justifyContent="center">
+            <Button width="70%" height="60px" bgColor="#0ebaba" _hover={{color:"none"}}  borderRadius="100px" color="white" fontSize="20px">Search</Button>
         </Box>
       </Box>
 
        </Box>
-        <Box width="50%" bgColor="#fff7e2 " display="flex" flexDirection="row-reverse" 
-        justifyContent="center" alignItems='center' >
-        <Image w="80%" src="https://www.revv.co.in/assets/RentalImages/HomeScreen/heroCarousel/ST_Desktop_1_FG.webp" />
-        </Box>
+            <Box width="50%"  bgColor="#fff7e2 " display="flex" flexDirection="row-reverse" 
+            justifyContent="center" alignItems='center' >
+                <Image w="80%" src="https://www.revv.co.in/assets/RentalImages/HomeScreen/heroCarousel/ST_Desktop_1_FG.webp" />
+            </Box>
      </Box>
-    </>
+    </Box>
   )
 }

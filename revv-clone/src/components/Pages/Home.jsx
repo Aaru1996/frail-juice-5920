@@ -11,6 +11,8 @@ import HappyCustomer from '../homepage/HappyCustomer';
 import OurJourney from '../homepage/OurJourney';
 import Investers from '../homepage/Investers';
 import ServiceableCities from '../homepage/ServiceableCities';
+import SocialMediaIcon from '../homepage/SocialMediaIcon';
+import Footer from '../homepage/Footer';
 
 
 export default function Home() {
@@ -27,6 +29,8 @@ export default function Home() {
           <OurJourney/>
           <Investers/>
           <ServiceableCities/>
+          <SocialMediaIcon/>
+          <Footer/>
       </Box>
   </Box>
  )
