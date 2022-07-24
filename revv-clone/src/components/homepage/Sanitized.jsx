@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Sanitized() {
   return (
-    <Box >
+    <Box  fontFamily="Poppins"mt="50px">
         <Box display="flex" justifyContent="space-around" m="20px 40px" >
             <Heading textAlign="left" color="#a8b5c0 " fontSize="26px">Sanitized & safe cars</Heading>
             <Spacer/>

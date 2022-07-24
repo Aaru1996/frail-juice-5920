@@ -4,44 +4,44 @@ import { Box, Button, Heading, Image, Spacer, Text } from '@chakra-ui/react'
 
 export default function ServiceableCities() {
   return (
-    <Box bgColor="black" mt="50px" p="40px">
+    <Box bgColor="#2a2b36"fontFamily="Poppins" mt="50px" p="40px" boxShadow="xs" borderRadius="15px">
        <Heading color='white'>Serviceable cities</Heading>
-        <Box display="flex" gap="200px" mt="10px" >
+        <Box display="flex" gap="200px" mt="20px" borderRadius="20px"  >
             <Box display="flex" gap='10px' alignItems="left" flexDirection="column" 
-               color='white'    >
+               color='#808d94  '    >
                   
-                    <Text>Car Rental in Bangalore</Text>
-                    <Text>Car Rental in Hyderabad</Text>
-                    <Text>Car Rental in Mumbai</Text>
-                    <Text>Car Rental in Delhi-NCR</Text>
-                    <Text>Car Rental in Chennai</Text>
-                    <Text>Car Rental in Pune</Text>
-                    <Text>Car Rental in Kolkata</Text>
-                    <Text>Car Rental in Ahmedabad</Text>
+                    <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Bangalore</Text>
+                    <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Hyderabad</Text>
+                    <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Mumbai</Text>
+                    <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Delhi-NCR</Text>
+                    <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Chennai</Text>
+                    <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Pune</Text>
+                    <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Kolkata</Text>
+                    <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Ahmedabad</Text>
                
             </Box>
             <Box display="flex" gap='10px' alignItems="left" flexDirection="column" 
-               color='white'  >
+                color='#808d94  '   >
 
-                                <Text>Car Rental in Bhubaneswar</Text>
-                                <Text>Car Rental in Chandigarh</Text>
-                                <Text>Car Rental in Coimbatore</Text>
-                                <Text>Car Rental in Jaipur</Text>
-                                <Text>Car Rental in Kochi</Text>
-                                <Text>Car Rental in Mangalore</Text>
-                                <Text>Car Rental in Mysore</Text>
-                                <Text>Car Rental in Nagpur</Text>
+                                <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Bhubaneswar</Text>
+                                <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Chandigarh</Text>
+                                <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Coimbatore</Text>
+                                <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Jaipur</Text>
+                                <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Kochi</Text>
+                                <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Mangalore</Text>
+                                <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Mysore</Text>
+                                <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Nagpur</Text>
                
             </Box>
             <Box display="flex" gap='10px' alignItems="left" flexDirection="column" 
-               color='white'  >
+               color='#808d94  '   >
 
-                            <Text>Car Rental in Surat      </Text>
-                            <Text>Car Rental in Tirupati</Text>
-                            <Text>Car Rental in Trivandrum</Text>
-                            <Text>Car Rental in Vadodara</Text>
-                            <Text>Car Rental in Vijayawada</Text>
-                            <Text>Car Rental in Vizag</Text>
+                            <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Surat      </Text>
+                            <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Tirupati</Text>
+                            <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Trivandrum</Text>
+                            <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Vadodara</Text>
+                            <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Vijayawada</Text>
+                            <Text _hover={{color:"white",cursor:"pointer"}}>Car Rental in Vizag</Text>
                
             </Box>
            
