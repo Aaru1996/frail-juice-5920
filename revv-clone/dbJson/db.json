@@ -1,0 +1,77 @@
+{
+    "data":[
+            {
+                "id":1,
+                "car":"Hyundai","model":"Santro MT",
+                "image":"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/RevvSANTRO.png",
+                "drive":"Manual",
+                "engine":"Petrol",
+                "seat":5,
+                "price":2668,
+                "perKmCharge":8
+
+            },
+            {
+                "id":2,
+                "car":"Maruti","model":"Alto K10",
+                "image":"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/Altok10.png",
+                "drive":"Automatic",
+                "engine":"Diesel",
+                "seat":5,
+                "price":2208,
+                "perKmCharge":7
+
+            },
+            {
+                "id":3,
+                "car":"Mahindra","model":"Scorpio",
+                "image":"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/scorpio.png",
+                "drive":"Automatic",
+                "engine":"Diesel",
+                "seat":7,
+                "price":5280,
+                "perKmCharge":14
+
+            },
+            {
+                "id":4,
+                "car":"Honda","model":"City (P)",
+                "image":"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/honda+city.png",
+                "drive":"Manual",
+                "engine":"Petrol",
+                "seat":5,
+                "price":4448,
+                "perKmCharge":12
+
+            },
+            {
+                "id":5,
+                "car":"Toyota","model":"Innova Crysta",
+                "image":"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/InnovaWEBPAGE.png",
+                "drive":"Manual",
+                "engine":"Diesel",
+                "seat":7,
+                "price": 7488,
+                "perKmCharge":15
+
+            },
+            {
+                "id":6,
+                "car":"Ford","model":"Innova EscoSport (P)",
+                "image":"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/InnovaWEBPAGE.png",
+                "drive":"Manual",
+                "engine":"Petrol",
+                "seat":5,
+                "price": 4224,
+                "perKmCharge":13
+
+            }
+           
+           
+          ]
+
+
+          
+
+  
+}
