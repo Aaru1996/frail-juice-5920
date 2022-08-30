@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+"price":[ 4224,5152,7520]  6
+ "price":[ 7488,9024,12672],
+  "price":[4448,5408,7776],
+  "price":[5280,6400,9184],
+  "price":[2668,3296,4768],
+ 

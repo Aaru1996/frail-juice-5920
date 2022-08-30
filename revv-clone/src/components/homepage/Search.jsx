@@ -1,7 +1,28 @@
 import { Box, Button, Image, Input, Text } from '@chakra-ui/react'
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function Search() {
+    const activeStyle={
+        textDecoration:"none",
+        display:"flex",
+        color:"green",
+        width:"100%"
+       
+    }
+    const inactiveStyle={
+        display:"flex",
+        color:'white',
+        // _hover:"green",
+        width:"350px",
+        height:"60px" ,
+        backgroundColor:"#0ebaba",
+        //  _hover:{color:"none"},
+         justifyContent:"center",
+         alignItems:"center",
+         fontSize:"20px",
+         borderRadius:"20px"
+    }
   return (
     <Box fontFamily="Poppins"mt="50px">
     <Box w="100%" h="20px" bgColor="#fff7e2"></Box>
@@ -15,7 +36,7 @@ export default function Search() {
             w="50%"
             h='90vh'
         >
-      <Box backgroundColor="white" display='flex' flexDirection="column"  margin="auto" padding="20px"   minW="200px" height="500px" maxW="500px" ml="100px" 
+      <Box backgroundColor="white" display='flex' flexDirection="column" justifyContent='center' alignItems='center'  margin="auto" padding="20px"   minW="200px" height="500px" maxW="500px" ml="100px" 
                boxShadow="lg" borderRadius="20px">
         <Box display="flex" justifyContent="center" borderRadius="20px" bgColor="#0ebaba" m='auto' width="80%" gap="10%"
          
@@ -61,8 +82,15 @@ export default function Search() {
                 </Box>
             </Box>
         </Box>
-        <Box display="flex" justifyContent="center">
-            <Button width="70%" height="60px" bgColor="#0ebaba" _hover={{color:"none"}}  borderRadius="100px" color="white" fontSize="20px">Search</Button>
+        <Box >
+           <NavLink to="/car" style={({ isActive }) =>
+              isActive ? activeStyle : inactiveStyle}>
+            {/* <Button width="70%" height="60px" bgColor="#0ebaba" _hover={{color:"none"}}   
+             color="white" fontSize="20px">  */}
+                Search
+                
+                 {/* </Button>  */}
+            </NavLink>    
         </Box>
       </Box>
 
