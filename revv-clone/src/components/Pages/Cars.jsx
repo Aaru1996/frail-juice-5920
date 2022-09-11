@@ -10,10 +10,10 @@ export default function Cars() {
     const [value, setValue]=useState('')
  
     const getdata=()=>{
-        axios.get("http://localhost:8080/data")
+        axios.get("https://revv-server.herokuapp.com/data")
         .then((res)=>{
              setData(res.data)
-             console.log(res.data);
+            //  console.log(res.data);
         })
     }
 
@@ -23,9 +23,10 @@ export default function Cars() {
 
 
 
-    const handelChange=(e)=>{
+    const handleChange=(e)=>{
+      // setData([]);
         const selected=e.target.value;
-        console.log(selected)
+       
        let view;
        let q;
         
@@ -59,16 +60,17 @@ export default function Cars() {
          getdata();
         }
 
+        console.log(view, q)
      sorting(view,q)
        
     }
 
-
+// https://revv-dbjson3.herokuapp.com
     const sorting=(view,q)=>{
-        axios.get(`http://localhost:8080/data?_sort=${view}&_order=${q}`)
+        axios.get(`https://revv-server.herokuapp.com/data?_sort=${view}&_order=${q}`)
         .then((res)=>{
              setData( res.data)
-             console.log(res.data);
+            //  console.log(res.data);
         })
     }
 
@@ -83,7 +85,7 @@ export default function Cars() {
             <Heading>Filters</Heading>
         </Box>
         <Box>
-            <Select defaultValue="popularity" variant="flushed" onChange={handelChange}>
+            <Select defaultValue="popularity" variant="flushed" onChange={handleChange}>
                 <option value="popularity">Polularity</option>
                 <option value="lth">Price: Low to High</option>
                 <option value="htl">Price: High to Low</option>
@@ -94,11 +96,11 @@ export default function Cars() {
       </Box>
 
     {/* car data */}
-    <Box  display='grid' gridTemplateColumns='repeat(3,1fr)' gridTemplateRows='auto' mt="40px" 
-    gap='3%'>
+    <Box  display='grid' gridTemplateColumns='repeat(3,1fr)' gridTemplateRows='auto'  
+    gap='1%' m="1% 5%">
     {data?.map((elem)=>(
 
-        <Box key={elem.car} boxShadow="md" bgColor='#f1f1f1' border='1px solid #c6c7d6' _hover={{bgColor:'white'}} 
+        <Box key={elem.id} boxShadow="md" bgColor='#f1f1f1' border='1px solid #c6c7d6' _hover={{bgColor:'white'}} 
            borderRadius="5px">
            <Box gap="5px" display='flex' justifyContent='center' alignItems='center' mt="20px">
               <Text><b>{elem.car}</b></Text>
