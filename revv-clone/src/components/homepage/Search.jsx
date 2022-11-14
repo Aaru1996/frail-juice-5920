@@ -1,8 +1,12 @@
 import { Box, Button, Image, Input, Text } from '@chakra-ui/react'
 import React from 'react'
+import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 export default function Search() {
+ 
+    const [city, setCity]=useState({city:"Bangalore"})
+
     const activeStyle={
         textDecoration:"none",
         display:"flex",
@@ -23,7 +27,18 @@ export default function Search() {
          fontSize:"20px",
          borderRadius:"20px"
     }
+   
+    const handleChange=(e)=>{
+        const {name, value}=e.target;
+        // console.log(name, value)
+        setCity({...city, [name]:value});
+    }
+    const handleSearch=()=>{
+        localStorage.setItem("city",JSON.stringify(city));
+    }
+
   return (
+    
     <Box fontFamily="Poppins"mt="50px">
     <Box w="100%" h="20px" bgColor="#fff7e2"></Box>
     <Box display='flex' w="100%" >
@@ -68,21 +83,21 @@ export default function Search() {
                 </Box>
                 <Box>
 
-                 <Input border="0px"  _focus={{border:"0px"}}  borderRadius="0px"  h="60px" defaultValue="Bangalore" />
+                 <Input border="0px" name='city' placeholder='eg. Bangalore' onChange={handleChange}  _focus={{border:"0px"}}  borderRadius="0px"  h="60px"  />
                 </Box>
             </Box>
             <Box display="flex" w="100%">
                 <Box borderRight='1px solid #c6c7d6'>
-                    <Text textAlign="center" mb="-15px">Start Time</Text>
-                    <Input type="datetime-local" border="0px" h="50px" w="185px"  />
+                    <Text textAlign="left" ml='15px' mb="-15px">Start Time</Text>
+                    <Input type="date" name='startDate' onChange={handleChange} border="0px" h="50px" w="185px"  />
                 </Box>
                 <Box>
-                <Text mb="-15px" textAlign="center">End Time</Text>
-                     <Input type="datetime-local" border="0px" placeholder='End Time' h="50px"  w="183px" />
+                <Text mb="-15px" textAlign="left" ml='15px'>End Time</Text>
+                     <Input type="date" name='endDate' onChange={handleChange} border="0px" placeholder='End Time' h="50px"  w="185px" />
                 </Box>
             </Box>
         </Box>
-        <Box >
+        <Box onClick={handleSearch} >
            <NavLink to="/car" style={({ isActive }) =>
               isActive ? activeStyle : inactiveStyle}>
             {/* <Button width="70%" height="60px" bgColor="#0ebaba" _hover={{color:"none"}}   

@@ -1,21 +1,30 @@
-import { Box, Button, Heading, Image, Select, Text } from '@chakra-ui/react'
+import { Box, Button, Heading, HStack, Image, Select, Text } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useSyncExternalStore } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 
 export default function Cars() {
     const [data, setData]=useState([]);
-    const [value, setValue]=useState('')
+    const [loading, setLoading]=useState(false);
+    const navigate=useNavigate();
+
+    const city=JSON.parse(localStorage.getItem("city"));
+    console.log("city",city);
+    
  
     const getdata=()=>{
+      setLoading(true)
         axios.get("https://revv-server.herokuapp.com/data")
         .then((res)=>{
-             setData(res.data)
+             setData(res.data);
+             setLoading(false)
             //  console.log(res.data);
         })
     }
+   //  console.log(loading)
 
     useEffect(()=>{
           getdata();
@@ -65,6 +74,11 @@ export default function Cars() {
        
     }
 
+    const handleBook=()=>{
+         alert("Car is Booked Successfully!");
+         navigate("/")
+    }
+
 // https://revv-dbjson3.herokuapp.com
     const sorting=(view,q)=>{
         axios.get(`https://revv-server.herokuapp.com/data?_sort=${view}&_order=${q}`)
@@ -96,6 +110,14 @@ export default function Cars() {
       </Box>
 
     {/* car data */}
+     <Box w="90%" m="auto" p="10px 0px" borderRadius={"10px"} display="flex" bgColor={"#f1f1f1"} justifyContent={"space-around"} alignItems="center" mt="20px">
+        <Box>City: {city.city}</Box>
+        <Box>Start Date: {city.startDate}</Box>
+        <Box>End Date: {city.endDate}</Box>
+     </Box>
+
+     {loading && <h1 style={{textAlign:'center'}}>Loading...</h1> }
+
     <Box  display='grid' gridTemplateColumns='repeat(3,1fr)' gridTemplateRows='auto'  
     gap='1%' m="1% 5%">
     {data?.map((elem)=>(
@@ -154,7 +176,7 @@ export default function Cars() {
                   <Text>Extra km charge @ ₹ {elem.perKmCharge}/km</Text>
               </Box>
               <Box >
-                <Button w='120px' bgColor='#0ebaba' color="white">
+                <Button onClick={handleBook} w='120px' bgColor='#0ebaba' color="white">
                     Book
                 </Button>
               </Box>
