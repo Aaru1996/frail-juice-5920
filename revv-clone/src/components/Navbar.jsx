@@ -12,28 +12,36 @@ import Login from './Pages/Login';
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const model2=useDisclosure();
+  // const model2=useDisclosure();
   const [email, setEmail]=useState("");
   const [data, setData]=useState("");
-  const navigate=useNavigate();
+  // const navigate=useNavigate();
   const [login, setLogin]=useState(false);
   
  
-  const handleSignup=()=> {
-    model2.onOpen();
-    // onClose();
-  }
-  const handleProceed=()=>{
-   
-      if(!login)
+  // const handleSignup=()=> {
+  //   model2.onOpen();
+  //   // onClose();
+  // }
+  const handleLogin=()=>{
+    // onClose()
+      
+    if(!email)
+    {
+      alert("put valid email")
+    }
+
+      else if(!login && email)
       {
-        setLogin(true);
         setData(email);
-        navigate("/");
-        console.log('arun')
+        setLogin(true);
+        alert('logged in')
+        onClose()
+       
       }
       else{
-        return <Text>Allready logged in</Text>
+        alert("Allready logged in");
+        onClose();
       }
       
 
@@ -115,19 +123,22 @@ export default function Navbar() {
                         <ModalBody>
 
 
-                          <Input type="email" placeholder='Enter Email'variant='flushed' mt="20px"/>
-                          <Input type="email" placeholder='Enter Password' variant='flushed' mt="20px"/>
-                          <Text color="#0ebaba">Send a new password to my email ID</Text>
+                          <Input type="email" placeholder='Enter Email'variant='flushed' mt="20px" onChange={(e)=>setEmail(e.target.value)}/>
+                          {/* <Input type="email" placeholder='Enter Password' variant='flushed' mt="20px"/>
+                          <Text color="#0ebaba">Send a new password to my email ID</Text> */}
                           <Box display="flex" gap="10px" justifyContent="center" mt="20px" >
-                              <Button bgColor="#0ebaba " size="lg" width="40%" color="white" >Login</Button>
+                              <Button bgColor="#0ebaba " onClick={handleLogin} size="lg" width="40%" color="white" >Login</Button>
                           </Box>
-                          <Box display="flex" gap="10px" justifyContent="center" mt="20px" >
-                            <Text color="#828282" >Don't have a account yet?</Text>
-                            <Button variant="ghost" color="#0ebaba" size="xs" onClick={handleSignup} >Sign Up</Button>
+
+                          {/* signup part */}
+
+                          {/* <Box display="flex" gap="10px" justifyContent="center" mt="20px" > */}
+                            {/* <Text color="#828282" >Don't have a account yet?</Text> */}
+                            {/* <Button variant="ghost" color="#0ebaba" size="xs" onClick={handleSignup} >Sign Up</Button> */}
                                 
                           
                               {/* 2nd modal */}
-                              <Modal isOpen={model2.isOpen} onClose={model2.onClose} size="xs">
+                              {/* <Modal isOpen={model2.isOpen} onClose={model2.onClose} size="xs">
                                 <ModalOverlay />
                                 <ModalContent>
                                   <ModalHeader textAlign="center" color="#828282">Sign Up</ModalHeader>
@@ -150,12 +161,12 @@ export default function Navbar() {
                                   </Box>
                                   </ModalBody>
                                 </ModalContent>
-                              </Modal>
+                              </Modal> */}
 
                               {/* end */}
                           
                           
-                          </Box>
+                          {/* </Box> */}
                           
                           <Box borderBottom="1px solid #e2e8f0 " height="10px"></Box>
                            <VStack mt="20px" mb="20px">
