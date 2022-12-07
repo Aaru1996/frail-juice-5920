@@ -6,72 +6,246 @@ import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 
-export default function Cars() {
-    const [data, setData]=useState([]);
-    const [loading, setLoading]=useState(false);
+export default function Cars({inputData}) {
+  
+     const dataArr=[
+      {
+          id:1,
+          car:"Hyundai",
+          model:"Santro MT",
+          image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/RevvSANTRO.png",
+          drive:"Manual",
+          engine:"Petrol",
+          seat:5,
+          price:2768,
+          perKmCharge:8
+
+      },
+      {
+          id:2,
+          car:"Maruti",
+          model:"Alto K10",
+          image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/Altok10.png",
+          drive:"Automatic",
+          engine:"Diesel",
+          seat:5,
+          price:2208,
+          perKmCharge:7
+
+      },
+      {
+          id:3,
+          car:"Mahindra",
+          model:"Scorpio",
+          image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/scorpio.png",
+          drive:"Automatic",
+          engine:"Diesel",
+          seat:7,
+          price:5280,
+          perKmCharge:14
+
+      },
+      {
+          id:4,
+          car:"Honda",
+          model:"City (P)",
+          image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/honda+city.png",
+          drive:"Manual",
+          engine:"Petrol",
+          seat:5,
+          price:4448,
+          perKmCharge:12
+
+      },
+      {
+          id:5,
+          car:"Toyota",
+          model:"Innova Crysta",
+          image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/InnovaWEBPAGE.png",
+          drive:"Manual",
+          engine:"Diesel",
+          seat:7,
+          price: 7488,
+          perKmCharge:15
+
+      },
+      {
+          id:6,
+          car:"Ford",
+          model:"Innova EscoSport (P)",
+          image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/InnovaWEBPAGE.png",
+          drive:"Manual",
+          engine:"Petrol",
+          seat:5,
+          price: 4224,
+          perKmCharge:13
+
+      },
+       {
+          id:7,
+          car:"Hyundai","model":"Santro MT",
+          image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/RevvSANTRO.png",
+          drive:"Manual",
+          engine:"Petrol",
+          seat:5,
+          price:2668,
+          perKmCharge:8
+
+      },
+      
+      {
+         id:8,
+         car:"Hyundai",
+         model:"Santro MT",
+         image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/RevvSANTRO.png",
+         drive:"Manual",
+         engine:"Petrol",
+         seat:5,
+         price:2768,
+         perKmCharge:8
+
+     },
+     {
+         id:9,
+         car:"Maruti",
+         model:"Alto K10",
+         image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/Altok10.png",
+         drive:"Automatic",
+         engine:"Diesel",
+         seat:5,
+         price:2208,
+         perKmCharge:7
+
+     },
+     {
+         id:10,
+         car:"Mahindra",
+         model:"Scorpio",
+         image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/scorpio.png",
+         drive:"Automatic",
+         engine:"Diesel",
+         seat:7,
+         price:5280,
+         perKmCharge:14
+
+     },
+     {
+         id:11,
+         car:"Honda",
+         model:"City (P)",
+         image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/honda+city.png",
+         drive:"Manual",
+         engine:"Petrol",
+         seat:5,
+         price:4448,
+         perKmCharge:12
+
+     },
+     {
+         id:12,
+         car:"Toyota",
+         model:"Innova Crysta",
+         image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/InnovaWEBPAGE.png",
+         drive:"Manual",
+         engine:"Diesel",
+         seat:7,
+         price: 7488,
+         perKmCharge:15
+
+     },
+     {
+         id:13,
+         car:"Ford",
+         model:"Innova EscoSport (P)",
+         image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/InnovaWEBPAGE.png",
+         drive:"Manual",
+         engine:"Petrol",
+         seat:5,
+         price: 4224,
+         perKmCharge:13
+
+     },
+      {
+         id:14,
+         car:"Hyundai","model":"Santro MT",
+         image:"https://s3-us-west-2.amazonaws.com/revvselfdrivecar/carImages/white_images/RevvSANTRO.png",
+         drive:"Manual",
+         engine:"Petrol",
+         seat:5,
+         price:2668,
+         perKmCharge:8
+
+     }
+                   
+                    ]
+    const [data, setData]=useState(dataArr);
+   
     const navigate=useNavigate();
-
-    const city=JSON.parse(localStorage.getItem("city"));
-    console.log("city",city);
-    
+    const {input}=inputData
  
-    const getdata=()=>{
-      setLoading(true)
-        axios.get("https://revv-server.herokuapp.com/data")
-        .then((res)=>{
-             setData(res.data);
-             setLoading(false)
-            //  console.log(res.data);
-        })
+    const handleFilter=(e)=>{
+            var selected=e.target.value;
+            if(selected==='hyundai')
+            {
+                 var updatedData=dataArr.filter((elem)=> {
+                         if(elem.car=='Hyundai')
+                         return elem
+                 })
+                 setData(updatedData);
+            }
+            if(selected==='mahindra')
+            {
+                 var updatedData=dataArr.filter((elem)=> {
+                         if(elem.car=='Mahindra')
+                         return elem
+                 })
+                 setData(updatedData);
+            }
+            if(selected==='toyota')
+            {
+                 var updatedData=dataArr.filter((elem)=> {
+                         if(elem.car=='Toyota')
+                         return elem
+                 })
+                 setData(updatedData);
+            }
+            if(selected==='all')
+            {
+                
+                 setData(dataArr);
+            }
     }
-   //  console.log(loading)
-
-    useEffect(()=>{
-          getdata();
-    },[]);
-
-
 
     const handleChange=(e)=>{
-      // setData([]);
+      
         const selected=e.target.value;
-       
-       let view;
-       let q;
-        
-        if(selected==='lth')
-        {
-        
-         view="price";
-         q='ASC'
-        }
-        else if(selected==='htl')
-        {
-        
-        view="price";
-        q='DESC'
-        }
-        else if(selected==='perkm_lth')
-        {
+      
+         if(selected==='lth')
+         {
+            data.sort((a,b)=>{
+                   return (a.price - b.price)
+            })
+         }
+         if(selected==='htl')
+         {
+            data.sort((a,b)=>{
+                   return (b.price - a.price)
+            })
+         }
+         if(selected==='perkm_lth')
+         {
+            data.sort((a,b)=>{
+                   return (a.perKmCharge - b.perKmCharge)
+            })
+         }
+         if(selected==='perkm_htl')
+         {
+            data.sort((a,b)=>{
+                   return (b.perKmCharge - a.perKmCharge)
+            })
+         }
          
-         view="perKmCharge";
-        q='ASC'
-       
-        }
-        else if(selected==='perkm_htl')
-        {
-        
-        view="perKmCharge";
-        q='DESC'
-        }
-        else
-        {
-         getdata();
-        }
-
-        console.log(view, q)
-     sorting(view,q)
-       
+         setData([...data])
     }
 
     const handleBook=()=>{
@@ -79,26 +253,36 @@ export default function Cars() {
          navigate("/")
     }
 
-// https://revv-dbjson3.herokuapp.com
-    const sorting=(view,q)=>{
-        axios.get(`https://revv-server.herokuapp.com/data?_sort=${view}&_order=${q}`)
-        .then((res)=>{
-             setData( res.data)
-            //  console.log(res.data);
-        })
-    }
-
+   
 
   return (
     <Box>
       
-      {/* sortingpart */}
+      {/* sorting and filtering part */}
 
-      <Box display='flex' justifyContent='space-around' alignItems="center">
-        <Box>
-            <Heading>Filters</Heading>
+      <Box display='flex' justifyContent="space-around" alignItems="center">
+        <Box display='flex' alignItems="center">
+           <Box>
+
+            <Text fontSize='25px' textAlign='left' mr='10px' fontWeight='bold'>Filter By Car</Text>
+           </Box>
+           <Box>
+
+            <Select defaultValue="popularity" variant="flushed" onChange={handleFilter}>
+                <option value="all">All</option>
+                <option value="hyundai">Hyundai</option>
+                <option value="mahindra">Mahindra</option>
+                <option value="toyota">Toyota </option>
+               
+            </Select>
+           </Box>
         </Box>
-        <Box>
+        <Box display='flex'>
+            <Box alignItems="center">
+               <Text fontSize='25px' textAlign='left' mr='10px' fontWeight='bold'>Sort By</Text>
+            </Box>
+            <Box>
+
             <Select defaultValue="popularity" variant="flushed" onChange={handleChange}>
                 <option value="popularity">Polularity</option>
                 <option value="lth">Price: Low to High</option>
@@ -106,17 +290,19 @@ export default function Cars() {
                 <option value="perkm_lth">Extra per Km charges: Low to High </option>
                 <option value="perkm_htl">Extra per Km charges: High to Low</option>
             </Select>
+            </Box>
         </Box>
       </Box>
 
     {/* car data */}
-     <Box w="90%" m="auto" p="10px 0px" borderRadius={"10px"} display="flex" bgColor={"#f1f1f1"} justifyContent={"space-around"} alignItems="center" mt="20px">
-        <Box>City: {city.city}</Box>
-        <Box>Start Date: {city.startDate}</Box>
-        <Box>End Date: {city.endDate}</Box>
+     <Box w="90%" m="auto" p="10px 0px" borderRadius={"10px"} display="flex" bgColor={"#f1f1f1"} 
+     justifyContent={"space-around"} alignItems="center" mt="20px">
+        <Box>City: {input.city}</Box>
+        <Box>Start Date: {input.startDate}</Box>
+        <Box>End Date: {input.endDate}</Box>
      </Box>
 
-     {loading && <h1 style={{textAlign:'center'}}>Loading...</h1> }
+   
 
     <Box  display='grid' gridTemplateColumns='repeat(3,1fr)' gridTemplateRows='auto'  
     gap='1%' m="1% 5%">
@@ -158,18 +344,11 @@ export default function Cars() {
                </Box>
            </Box>
            <Box display='flex' justifyContent='space-around' alignItems='center' w="100%" borderTop='1px solid #c6c7d6'  >
-              <Box bgColor='white' w='33.33%'  p="5px 0px">
+              <Box bgColor='white'  p="5px 0px">
                  <Text textAlign="center" color="#0ebaba"><b>₹ {elem.price}</b></Text>
                  <Text textAlign="center" color="#0ebaba"><b>352 kms</b></Text>
               </Box>
-              <Box  w='33.33%'  p="5px 0px" bgColor='#f1f1f1'>
-                 <Text textAlign="center"> <b>₹ </b></Text>
-                 <Text textAlign="center"> <b>352 kms</b></Text>
-              </Box>
-              <Box  w='33.33%' p="5px 0px" bgColor='#f1f1f1'>
-                 <Text textAlign="center"> <b>₹ </b></Text>
-                 <Text textAlign="center"><b>352 kms</b></Text>
-              </Box>
+             
            </Box>
            <Box display='flex' justifyContent='space-around' alignItems='center' padding="15px 0px" bgColor="white">
               <Box>

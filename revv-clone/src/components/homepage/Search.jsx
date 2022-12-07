@@ -1,11 +1,13 @@
 import { Box, Button, Image, Input, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
-export default function Search() {
- 
-    const [city, setCity]=useState({city:"Bangalore"})
+export default function Search({inputData}) {
+    const {input, setInput}=inputData
+    const [city, setCity]=useState({city:"Bangalore"});
+    const navigate = useNavigate()
+    // console.log(input)
 
     const activeStyle={
         textDecoration:"none",
@@ -31,10 +33,15 @@ export default function Search() {
     const handleChange=(e)=>{
         const {name, value}=e.target;
         // console.log(name, value)
-        setCity({...city, [name]:value});
+        setInput({...input, [name]:value});
     }
     const handleSearch=()=>{
-        localStorage.setItem("city",JSON.stringify(city));
+        // console.log('input',input)
+        if(input.startDate=='' || input.endDate=='')
+        alert('Fill all Details')
+        else
+        navigate('/car')
+        // localStorage.setItem("city",JSON.stringify(city));
     }
 
   return (
@@ -97,15 +104,15 @@ export default function Search() {
                 </Box>
             </Box>
         </Box>
-        <Box onClick={handleSearch} >
-           <NavLink to="/car" style={({ isActive }) =>
-              isActive ? activeStyle : inactiveStyle}>
-            {/* <Button width="70%" height="60px" bgColor="#0ebaba" _hover={{color:"none"}}   
-             color="white" fontSize="20px">  */}
+        <Box  >
+           {/* <NavLink to="/car" style={({ isActive }) =>
+              isActive ? activeStyle : inactiveStyle}> */}
+            <Button onClick={handleSearch} width="300px" height="60px" bgColor="#0ebaba" _hover={{color:"none"}}   
+             color="white" fontSize="20px"> 
                 Search
                 
-                 {/* </Button>  */}
-            </NavLink>    
+                 </Button> 
+            {/* </NavLink>     */}
         </Box>
       </Box>
 

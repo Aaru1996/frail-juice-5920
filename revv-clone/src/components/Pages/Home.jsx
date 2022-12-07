@@ -15,11 +15,11 @@ import SocialMediaIcon from '../homepage/SocialMediaIcon';
 import Footer from '../homepage/Footer';
 
 
-export default function Home() {
+export default function Home({inputData}) {
  
  return (
   <Box bgColor="#f1f4f8" >
-      <Search />
+      <Search inputData={inputData} />
       <Box p="6%">
           <Featured />
           <Sanitized/>
